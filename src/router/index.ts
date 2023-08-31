@@ -1,27 +1,32 @@
 import { createRouter, createWebHistory } from "vue-router";
+import Home from "@/views/Home.vue";
+import Users from "@/views/Users.vue";
+import Organisations from "@/views/Organisations.vue";
+import Emojis from "@/views/Emojis.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+
   routes: [
     {
       path: "/",
       name: "home",
-      component: () => import("@/views/Home.vue"),
+      component: Home,
     },
     {
       path: "/users",
       name: "Users",
-      component: () => import("@/views/Users.vue"),
+      component: Users,
     },
     {
       path: "/organisations",
       name: "Organisations",
-      component: () => import("@/views/Organisations.vue"),
+      component: Organisations,
     },
     {
       path: "/emojis",
       name: "Emojis",
-      component: () => import("@/views/Emojis.vue"),
+      component: Emojis,
     },
   ],
 });

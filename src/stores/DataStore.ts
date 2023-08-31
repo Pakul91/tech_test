@@ -22,6 +22,8 @@ export const useDataStore = defineStore("data", () => {
   const getUsersData = async (): Promise<void> => {
     if (detailedUsersData.value.length) return;
 
+    console.log("token", import.meta.env.VITE_GITHUB_TOKEN);
+
     if (!usersData.value) {
       const response = await fetch(
         "https://api.github.com/users?per_page=100",
