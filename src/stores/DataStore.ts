@@ -28,10 +28,10 @@ export const useDataStore = defineStore("data", () => {
       const response = await fetch(
         "https://api.github.com/users?per_page=100",
         {
-          //   headers: {
-          //     Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
-          //     "X-GitHub-Api-Version": "2022-11-28",
-          //   },
+          headers: {
+            Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
+            "X-GitHub-Api-Version": "2022-11-28",
+          },
         }
       );
       usersData.value = await response.json();
@@ -46,11 +46,11 @@ export const useDataStore = defineStore("data", () => {
       const response = await fetch(
         `https://api.github.com/users/${user.login}`,
         {
-          // method: "GET",
-          // headers: {
-          //   Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
-          //   "X-GitHub-Api-Version": "2022-11-28",
-          // },
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
+            "X-GitHub-Api-Version": "2022-11-28",
+          },
         }
       );
       return await response.json();
@@ -68,11 +68,11 @@ export const useDataStore = defineStore("data", () => {
       const response = await fetch(
         `https://api.github.com/organizations?per_page=100`,
         {
-          // method: "GET",
-          // headers: {
-          //   Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
-          //   "X-GitHub-Api-Version": "2022-11-28",
-          // },
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
+            "X-GitHub-Api-Version": "2022-11-28",
+          },
         }
       );
       organisationsData.value = await response.json();
@@ -86,11 +86,11 @@ export const useDataStore = defineStore("data", () => {
 
     const detailedOrgPromises = organisationsData.value.map(async (org) => {
       const response = await fetch(`https://api.github.com/orgs/${org.login}`, {
-        // method: "GET",
-        // headers: {
-        //   Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
-        //   "X-GitHub-Api-Version": "2022-11-28",
-        // },
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
       });
       return await response.json();
     });
@@ -104,11 +104,11 @@ export const useDataStore = defineStore("data", () => {
     if (emojisData.value.length) return;
 
     const response = await fetch(`https://api.github.com/emojis?per_page=100`, {
-      // method: "GET",
-      // headers: {
-      //   Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
-      //   "X-GitHub-Api-Version": "2022-11-28",
-      // },
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
     });
 
     const data = await response.json();
