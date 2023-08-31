@@ -21,7 +21,7 @@ export const useDataStore = defineStore("data", () => {
 
   const getSecureHeaders = (): any => {
     // I know I know... I'm going to remove it right after the demo
-    const token = "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";
+    const token = "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";
 
     return {
       Authorization: `Bearer ${token}`,
@@ -35,7 +35,7 @@ export const useDataStore = defineStore("data", () => {
     if (!usersData.value) {
       const response = await fetch(
         `https://api.github.com/users?per_page=${
-          import.meta.env.VITE_GITHUB_TOKEN ? "100" : "30"
+          import.meta.env.VITE_GITHUB_TOKEN ? "100" : "20"
         }`,
         {
           method: "GET",
@@ -75,7 +75,7 @@ export const useDataStore = defineStore("data", () => {
     if (!organisationsData.value) {
       const response = await fetch(
         `https://api.github.com/organizations?per_page=${
-          import.meta.env.VITE_GITHUB_TOKEN ? "100" : "30"
+          import.meta.env.VITE_GITHUB_TOKEN ? "100" : "20"
         }`,
         {
           method: "GET",
@@ -112,7 +112,7 @@ export const useDataStore = defineStore("data", () => {
 
     const response = await fetch(
       `https://api.github.com/emojis?per_page=${
-        import.meta.env.VITE_GITHUB_TOKEN ? "100" : "30"
+        import.meta.env.VITE_GITHUB_TOKEN ? "100" : "20"
       }`,
       {
         method: "GET",
