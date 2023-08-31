@@ -111,9 +111,9 @@ export const useDataStore = defineStore("data", () => {
 
     const data = await response.json();
 
-    emojisData.value = Object.entries(data).map(([name, url], index) => ({
-      name,
-      url,
+    emojisData.value = Object.entries(data).map((entry, index) => ({
+      name: entry[0] as string,
+      url: entry[1] as string,
       id: index,
     }));
   };
