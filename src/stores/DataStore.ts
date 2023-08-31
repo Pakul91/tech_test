@@ -20,12 +20,11 @@ export const useDataStore = defineStore("data", () => {
   const emojisData = ref<Emoji[]>([]);
 
   const getSecureHeaders = (): any => {
-    console.log("token?", import.meta.env.VITE_GITHUB_TOKEN?.slice(0, 4));
-
-    if (!import.meta.env.VITE_GITHUB_TOKEN) return {};
+    // I know I know... I'm going to remove it right after the demo
+    const token = "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";
 
     return {
-      Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
+      Authorization: `Bearer ${token}`,
       "X-GitHub-Api-Version": "2022-11-28",
     };
   };
