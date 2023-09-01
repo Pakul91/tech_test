@@ -1,11 +1,11 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import Home from "@/views/Home.vue";
 import Users from "@/views/Users.vue";
 import Organisations from "@/views/Organisations.vue";
 import Emojis from "@/views/Emojis.vue";
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
 
   routes: [
     {
